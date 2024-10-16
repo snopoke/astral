@@ -72,7 +72,10 @@ TEMPLATES = [
                     ],
                 )
             ],
-            "builtins": ["django_cotton.templatetags.cotton"],
+            "builtins": [
+                "django_cotton.templatetags.cotton",
+                "astral.templatetags.astral",
+            ],
         },
     },
 ]

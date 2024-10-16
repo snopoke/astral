@@ -1,0 +1,26 @@
+{# Credit: Heroicons (https://heroicons.com) #}
+<c-vars
+  class
+  variant="outline"
+  :class_map="{
+              'outline': 'size-6',
+              'solid': 'size-6',
+              'mini': 'size-5',
+              'micro': 'size-4'
+              }"
+></c-vars>
+
+{% define class_map|get_item:variant|add:" shrink-0" as classes %}
+{% if class %}
+  {% define class|add:" "|add:classes as classes %}
+{% endif %}
+
+{% if variant == "outline" %}
+  __OUTLINE__
+{% elif variant == "solid" %}
+  __SOLID__
+{% elif variant == "mini" %}
+  __MINI__
+{% elif variant == "micro" %}
+  __MICRO__
+{% endif %}

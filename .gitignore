@@ -11,3 +11,4 @@ db.sqlite3
 
 # Virtual environments
 .venv
+example-project/static/output.css

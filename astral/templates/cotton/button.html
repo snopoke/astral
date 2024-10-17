@@ -43,7 +43,7 @@
 {% define button_classes|append_class:"btn-block" if_=block name="button_classes" %}
 
 {% define button_classes|append_class:class_size as button_classes %}
-<button class="btn {{ button_classes }}" {{attrs}}>
+<c-button-or-link class="btn {{ button_classes }}">
   {% if loading %}
     <c-loading :variant="loading_variant"></c-loading>
   {% endif %}
@@ -64,4 +64,4 @@
       {{ icon_trailing }}
     {% endif %}
   {% endif %}
-</button>
+</c-button-or-link>

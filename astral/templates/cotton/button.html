@@ -12,9 +12,9 @@
   {% define icon as icon_leading %}
 {% endif %}
 
-{% define slot|wordcount|length|yesno:",true" as is_empty %}
+{% define slot|wordcount|yesno:",true" as is_empty %}
 {% if not square and is_empty %}
-  {% if not icon_leading or not icon_leading %}
+  {% if not icon_leading or not icon_trailing %}
     {% define True as square %}
   {% endif %}
 {% endif %}

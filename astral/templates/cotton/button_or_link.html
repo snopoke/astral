@@ -1,0 +1,11 @@
+<c-vars href/>
+
+{% if href %}
+  <a href="{{ href }}" {{ attrs }}>
+    {{ slot }}
+  </a>
+{% else %}
+  <button {{ attrs }}>
+    {{ slot }}
+  </button>
+{% endif %}

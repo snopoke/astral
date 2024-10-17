@@ -31,6 +31,11 @@ def define_eval(context, val):
     return DynamicAttr(val).resolve(context)
 
 
+@register.simple_tag
+def join_vars(*args, separator=" "):
+    return separator.join(filter(None, args))
+
+
 @register.filter(is_safe=True)
 @stringfilter
 def append_class(value, arg):

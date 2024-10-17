@@ -1,0 +1,15 @@
+<c-vars position="top" variant tooltip/>
+{% define "tooltip-primary tooltip-secondary tooltip-accent tooltip-info tooltip-success tooltip-warning tooltip-error"|build_class_map:"tooltip" as variants %}
+{% define variants|get_item:variant if_=variant as class_variant %}
+
+{% define "tooltip-top tooltip-bottom tooltip-left tooltip-right"|build_class_map:"tooltip" as positions %}
+{% define positions|get_item:position as class_position %}
+
+{% join_vars class_variant class_position as classes %}
+{% if tooltip %}
+  <div class="tooltip {{ classes }}" data-tip="{{ tooltip }}">
+    {{ slot }}
+  </div>
+{% else %}
+  {{ slot }}
+{% endif %}

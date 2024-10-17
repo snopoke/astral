@@ -14,6 +14,9 @@
   block
   loading
   load_variant="spinner"
+  tooltip
+  tooltip_position
+  tooltip_variant
 ></c-vars>
 
 {% define "btn-xs btn-sm btn-md btn-lg"|build_class_map:"btn" as sizes %}
@@ -43,25 +46,27 @@
 {% define button_classes|append_class:"btn-block" if_=block name="button_classes" %}
 
 {% define button_classes|append_class:class_size as button_classes %}
-<c-button-or-link class="btn {{ button_classes }}">
-  {% if loading %}
-    <c-loading :variant="loading_variant"></c-loading>
-  {% endif %}
-  {% if icon_leading and not loading %}
-    {% if icon_leading|striptags == icon_leading %}
-      <c-component is="icon.{{ icon_leading }}" :variant="icon_variant" />
-    {% else %}
-      {{ icon_leading }}
+<c-tooltip :tooltip=tooltip :position="tooltip_position" variant="{{ tooltip_variant|default:variant }}">
+  <c-button-or-link class="btn {{ button_classes }}">
+    {% if loading %}
+      <c-loading :variant="loading_variant"></c-loading>
     {% endif %}
-  {% endif %}
-
-  {{ slot }}
-
-  {% if icon_trailing %}
-    {% if icon_trailing|striptags == icon_trailing %}
-      <c-component is="icon.{{ icon_trailing }}" :variant="icon_variant" />
-    {% else %}
-      {{ icon_trailing }}
+    {% if icon_leading and not loading %}
+      {% if icon_leading|striptags == icon_leading %}
+        <c-component is="icon.{{ icon_leading }}" :variant="icon_variant" />
+      {% else %}
+        {{ icon_leading }}
+      {% endif %}
     {% endif %}
-  {% endif %}
-</c-button-or-link>
+
+    {{ slot }}
+
+    {% if icon_trailing %}
+      {% if icon_trailing|striptags == icon_trailing %}
+        <c-component is="icon.{{ icon_trailing }}" :variant="icon_variant" />
+      {% else %}
+        {{ icon_trailing }}
+      {% endif %}
+    {% endif %}
+  </c-button-or-link>
+</c-tooltip>

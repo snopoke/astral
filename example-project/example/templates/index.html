@@ -8,9 +8,11 @@
   </head>
   <body>
     <div class="m-20 join gap-2">
-      <c-button icon="adjustments-horizontal" variant="error" />
+      <c-button icon="adjustments-horizontal" circle variant="info"/>
 
-      <c-button variant="error" loading loading_variant="dots"/>
+      <c-button icon="adjustments-horizontal" variant="error" tooltip="hi" tooltip_position="bottom"/>
+
+      <c-button variant="error" loading loading_variant="dots" tooltip="hi" tooltip_variant="success"/>
 
       <c-button icon_leading="adjustments-horizontal" variant="success">test</c-button>
 
@@ -27,7 +29,12 @@
       </c-button>
 
       <c-button>
+        <c-icon.chart-bar/>
+        asdf
         <c-icon.adjustments-horizontal/>
+      </c-button>
+
+      <c-button>
         asdf
         <c-icon.adjustments-horizontal/>
       </c-button>

@@ -1,3 +1,4 @@
+{# See https://daisyui.com/components/button/ #}
 <c-vars
   size="md"
   variant="default"
@@ -6,17 +7,21 @@
   icon_trailing
   icon_variant
   square
+  circle
   outline
   wide
   glass
+  block
+  loading
+  load_variant="spinner"
 ></c-vars>
 
 {% define "btn-xs btn-sm btn-md btn-lg"|build_class_map:"btn" as sizes %}
-{% define "btn-neutral btn-accent btn-info btn-success btn-warning btn-error btn-ghost btn-link"|build_class_map:"btn" as variants %}
+{% define "btn-primary btn-neutral btn-accent btn-info btn-success btn-warning btn-error btn-ghost btn-link"|build_class_map:"btn" as variants %}
 {% define icon if_=icon as icon_leading %}
 
 {% define slot|wordcount|yesno:",true" as is_empty %}
-{% if not square and is_empty %}
+{% if not square and not circle and is_empty %}
   {% if not icon_leading or not icon_trailing %}
     {% define True as square %}
   {% endif %}
@@ -24,6 +29,9 @@
 
 {% define sizes|get_item:size as class_size %}
 {% define class_size|add:" btn-square" if_=square name="class_size" %}
+{% if not square %}
+  {% define class_size|add:" btn-circle" if_=circle name="class_size" %}
+{% endif %}
 
 {% define "" as button_classes %}
 {% if variant != "default" %}
@@ -32,11 +40,14 @@
 
 {% define button_classes|append_class:"btn-outline" if_=outline name="button_classes" %}
 {% define button_classes|append_class:"btn-wide" if_=wide name="button_classes" %}
-
+{% define button_classes|append_class:"btn-block" if_=block name="button_classes" %}
 
 {% define button_classes|append_class:class_size as button_classes %}
-<button class="btn {{ button_classes }}">
-  {% if icon_leading %}
+<button class="btn {{ button_classes }}" {{attrs}}>
+  {% if loading %}
+    <c-loading :variant="loading_variant"></c-loading>
+  {% endif %}
+  {% if icon_leading and not loading %}
     {% if icon_leading|striptags == icon_leading %}
       <c-component is="icon.{{ icon_leading }}" :variant="icon_variant" />
     {% else %}

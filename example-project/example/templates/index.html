@@ -8,9 +8,44 @@
   </head>
   <body>
     <div class="m-20 join gap-2">
-      <c-button icon="adjustments-horizontal" variant="error"/>
-      <c-button icon_leading="adjustments-horizontal" variant="error">test</c-button>
-      <c-button icon_trailing="adjustments-horizontal" variant="error">test</c-button>
+      <button class="btn btn-error btn-square btn-md">
+        <c-icon.adjustments-horizontal/>
+      </button>
+
+      <button class="btn btn-error btn-square btn-md">
+        <span class="loading loading-dots"></span>
+      </button>
+
+      <button class="btn btn-success">test</button>
+
+      <button class="btn btn-primary">test
+        <c-icon.adjustments-horizontal/>
+      </button>
+
+      <button class="btn btn-square"><c-icon.adjustments-horizontal/></button>
+
+      <button class="btn">
+        <c-icon.chart-bar />
+        test
+        <c-icon.adjustments-horizontal/>
+      </button>
+
+      <button class="btn">
+        <c-icon.adjustments-horizontal/>
+        asdf
+        <c-icon.adjustments-horizontal/>
+      </button>
+
+    </div>
+    <div></div>
+    <div class="m-20 join gap-2">
+      <c-button icon="adjustments-horizontal" variant="error" />
+
+      <c-button variant="error" loading loading_variant="dots"/>
+
+      <c-button icon_leading="adjustments-horizontal" variant="success">test</c-button>
+
+      <c-button icon_trailing="adjustments-horizontal" variant="primary">test</c-button>
 
       <c-button>
         <c-slot name="icon">

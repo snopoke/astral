@@ -1,0 +1,8 @@
+<c-vars variant="spinner" size="md" />
+
+{% define "loading-xs loading-sm loading-md loading-lg"|build_class_map:"loading" as sizes %}
+{% define "loading-spinner loading-dots loading-ring loading-ball loading-bars loading-infinity"|build_class_map:"loading" as variants %}
+
+{% define sizes|get_item:size as class_size %}
+{% define variants|get_item:variant as class_variant %}
+<span class="loading {{ class_variant }} {{ class_size }}"></span>

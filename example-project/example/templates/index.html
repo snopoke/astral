@@ -7,15 +7,26 @@
     <link href="{% static 'output.css' %}" rel="stylesheet">
   </head>
   <body>
-    <c-button icon="adjustments-horizontal" variant="danger">
-    </c-button>
-    <c-button>
-      <c-slot name="icon">
-        <c-icon.adjustments-horizontal variant="mini"/>
-      </c-slot>
-    </c-button>
-    <c-button icon="chart-bar" icon_trailing="adjustments-horizontal">
-      test
-    </c-button>
+    <div class="m-20 join gap-2">
+      <c-button icon="adjustments-horizontal" variant="error"/>
+      <c-button icon_leading="adjustments-horizontal" variant="error">test</c-button>
+      <c-button icon_trailing="adjustments-horizontal" variant="error">test</c-button>
+
+      <c-button>
+        <c-slot name="icon">
+          <c-icon.adjustments-horizontal/>
+        </c-slot>
+      </c-button>
+
+      <c-button icon="chart-bar" icon_trailing="adjustments-horizontal">
+        test
+      </c-button>
+
+      <c-button>
+        <c-icon.adjustments-horizontal/>
+        asdf
+        <c-icon.adjustments-horizontal/>
+      </c-button>
+    </div>
   </body>
 </html>

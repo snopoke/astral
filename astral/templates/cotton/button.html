@@ -1,16 +1,19 @@
 <c-vars
-  size="base"
-  variant="primary"
-  square
+  size="md"
+  variant="default"
   icon
   icon_leading
   icon_trailing
   icon_variant
+  square
+  outline
+  wide
+  glass
 ></c-vars>
 
-{% if icon %}
-  {% define icon as icon_leading %}
-{% endif %}
+{% define "btn-xs btn-sm btn-md btn-lg"|build_class_map:"btn" as sizes %}
+{% define "btn-neutral btn-accent btn-info btn-success btn-warning btn-error btn-ghost btn-link"|build_class_map:"btn" as variants %}
+{% define icon if_=icon as icon_leading %}
 
 {% define slot|wordcount|yesno:",true" as is_empty %}
 {% if not square and is_empty %}
@@ -19,39 +22,20 @@
   {% endif %}
 {% endif %}
 
-{% if not icon_variant %}
-  {% if size == 'xs' %}
-    {% define square|yesno:"micro,micro" as icon_variant %}
-  {% else %}
-    {% define square|yesno:"micro,mini" as icon_variant %}
-  {% endif %}
+{% define sizes|get_item:size as class_size %}
+{% define class_size|add:" btn-square" if_=square name="class_size" %}
+
+{% define "" as button_classes %}
+{% if variant != "default" %}
+  {% define variants|get_item:variant|append_class:button_classes as button_classes %}
 {% endif %}
 
-{% if size == 'base' %}
-  {% define square|yesno:" w-10, px-4"|add:" h-10 text-sm rounded-lg" as class_size %}
-{% elif size == 'sm' %}
-  {% define square|yesno:" w-8, px-3"|add:" h-8 text-sm rounded-md" as class_size %}
-{% elif size == 'xs' %}
-  {% define square|yesno:" w-6, px-2"|add:" h-6 text-xs rounded-md" as class_size %}
-{% endif %}
+{% define button_classes|append_class:"btn-outline" if_=outline name="button_classes" %}
+{% define button_classes|append_class:"btn-wide" if_=wide name="button_classes" %}
 
 
-{% define "relative inline-flex items-center font-medium justify-center gap-2 whitespace-nowrap" as button_classes %}
-{% define " disabled:opacity-75 dark:disabled:opacity-75 disabled:cursor-default disabled:pointer-events-none" as disabled_classes %}
-
-{% if variant == "primary" %}
-  {% define " bg-zinc-800 hover:bg-zinc-900 dark:bg-white dark:hover:bg-zinc-100" as class_bg_color %}
-  {% define " text-white dark:text-zinc-800" as class_text_color %}
-  {% define " shadow-[inset_0px_1px_theme(colors.zinc.900),inset_0px_2px_theme(colors.white/.15)] dark:shadow-none" as class_shadow %}
-{% else %}
-  {% define " bg-red-500 hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-500" as class_bg_color %}
-  {% define " text-white" as class_text_color %}
-  {% define " shadow-[inset_0px_1px_theme(colors.red.500),inset_0px_2px_theme(colors.white/.15)] dark:shadow-none" as class_shadow %}
-{% endif %}
-
-{{ square }}
-{% define button_classes|add:class_bg_color|add:class_text_color|add:class_size|add:disabled_classes as button_classes %}
-<button class="{{button_classes}}">
+{% define button_classes|append_class:class_size as button_classes %}
+<button class="btn {{ button_classes }}">
   {% if icon_leading %}
     {% if icon_leading|striptags == icon_leading %}
       <c-component is="icon.{{ icon_leading }}" :variant="icon_variant" />
@@ -64,7 +48,7 @@
 
   {% if icon_trailing %}
     {% if icon_trailing|striptags == icon_trailing %}
-      <c-component is="icon.{{ icon_trailing }}" :variant="icon_variant" class="{{ square|yesno:",-ml-1" }}" />
+      <c-component is="icon.{{ icon_trailing }}" :variant="icon_variant" />
     {% else %}
       {{ icon_trailing }}
     {% endif %}

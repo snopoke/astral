@@ -53,7 +53,7 @@
     {% endif %}
     {% if icon_leading and not loading %}
       {% if icon_leading|striptags == icon_leading %}
-        <c-component is="icon.{{ icon_leading }}" :variant="icon_variant" />
+        <c-component is="heroicon.{{ icon_leading }}" :variant="icon_variant" />
       {% else %}
         {{ icon_leading }}
       {% endif %}
@@ -63,7 +63,7 @@
 
     {% if icon_trailing %}
       {% if icon_trailing|striptags == icon_trailing %}
-        <c-component is="icon.{{ icon_trailing }}" :variant="icon_variant" />
+        <c-component is="heroicon.{{ icon_trailing }}" :variant="icon_variant" />
       {% else %}
         {{ icon_trailing }}
       {% endif %}

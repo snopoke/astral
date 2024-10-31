@@ -15,6 +15,7 @@ name = "astral"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "cotton-heroicons" },
     { name = "django" },
     { name = "django-cotton" },
 ]
@@ -28,6 +29,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "cotton-heroicons", specifier = ">=0.1.1" },
     { name = "django", specifier = ">=5.1.2" },
     { name = "django-cotton", specifier = ">=1.2.0" },
 ]
@@ -46,6 +48,19 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/11/74/539e56497d9bd1d484fd863dd69cbbfa653cd2aa27abfe35653494d85e94/cfgv-3.4.0.tar.gz", hash = "sha256:e52591d4c5f5dead8e0f673fb16db7949d2cfb3f7da4582893288f0ded8fe560", size = 7114 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/c5/55/51844dd50c4fc7a33b653bfaba4c2456f06955289ca770a5dbd5fd267374/cfgv-3.4.0-py2.py3-none-any.whl", hash = "sha256:b7265b1f29fd3316bfcd2b330d63d024f2bfd8bcb8b0272f8e19a504856c48f9", size = 7249 },
+]
+
+[[package]]
+name = "cotton-heroicons"
+version = "0.1.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+    { name = "django-cotton" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e4/5c/81dbd8517f30aa42b6e583f59e4d531d9a13c3bb4d09678d8b6143759726/cotton_heroicons-0.1.1.tar.gz", hash = "sha256:1525cda0ea7bbb36ff55f354bb1b97d8bccaae0bc46d7a35e2c47e3cf3256273", size = 151403 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/95/9d/8b41193f21c46cced0a0d803c43fda773dc6cc29f06f3ef7de10b016294f/cotton_heroicons-0.1.1-py3-none-any.whl", hash = "sha256:ec1c5d6783ad9ac62bbcd47a0ab252649f22cfa8da3705be6242df5d92b6680c", size = 371856 },
 ]
 
 [[package]]
@@ -73,14 +88,14 @@ wheels = [
 
 [[package]]
 name = "django-cotton"
-version = "1.2.0"
+version = "1.2.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/73/61/5f10a45fa25086352069ff4a3cc2a0ae0b1e2d209a59b91db73887e104e5/django_cotton-1.2.0.tar.gz", hash = "sha256:cb6c3ea3a74daddd8c3639fb56a587e3e0269554c6d379b217e37336c06c1b7a", size = 20687 }
+sdist = { url = "https://files.pythonhosted.org/packages/3c/74/291f902bf07eb9acf17d4c09b6f0a968283330e20591bd3dad0bf80c8b95/django_cotton-1.2.1.tar.gz", hash = "sha256:2ad65df214104e6103ea55d134c3d971e3887ead3bc9a92fed713249561572f9", size = 20692 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a1/33/ff77449eb17905293f403492c12f2434595ba3977483585c7a72a7698c6d/django_cotton-1.2.0-py3-none-any.whl", hash = "sha256:d01b88eaf210bbb9974174806ecd66b984a4f0162c9c1b680f230695471e7b85", size = 19921 },
+    { url = "https://files.pythonhosted.org/packages/19/37/0873ff2dcda8215ccf26ce8773f152c2474d22b4a5bbaccda084a9eda88d/django_cotton-1.2.1-py3-none-any.whl", hash = "sha256:395b7b6e0b00206be762bc9f20ac6a56e960e24d5ebaf4fb41ac08929f58c4dc", size = 19882 },
 ]
 
 [[package]]

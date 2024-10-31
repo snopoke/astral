@@ -9,6 +9,11 @@ dependencies = [
     "django>=5.1.2",
 ]
 
+[project.optional-dependencies]
+heroicons = [
+    "cotton-heroicons>=0.1.1",
+]
+
 [tool.uv]
 dev-dependencies = [
     "invoke>=2.2.0",

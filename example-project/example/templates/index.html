@@ -8,9 +8,9 @@
   </head>
   <body>
     <div class="m-20 join gap-2">
-      <c-button icon="adjustments-horizontal" circle variant="info"/>
+      <c-button heroicon="adjustments-horizontal" circle variant="info"/>
 
-      <c-button icon="adjustments-horizontal" variant="error" tooltip="hi" tooltip_position="bottom"/>
+      <c-button heroicon="adjustments-horizontal" variant="error" tooltip="hi" tooltip_position="bottom"/>
 
       <c-button variant="error" loading loading_variant="dots" tooltip="hi" tooltip_variant="success"/>
 
@@ -19,8 +19,8 @@
       <c-button icon_trailing="adjustments-horizontal" variant="primary">test</c-button>
 
       <c-button>
-        <c-slot name="icon">
-          <c-icon.adjustments-horizontal/>
+        <c-slot name="heroicon">
+          <c-heroicon.adjustments-horizontal/>
         </c-slot>
       </c-button>
 
@@ -29,17 +29,17 @@
       </c-button>
 
       <c-button>
-        <c-icon.chart-bar/>
+        <c-heroicon.chart-bar/>
         asdf
-        <c-icon.adjustments-horizontal/>
+        <c-heroicon.adjustments-horizontal/>
       </c-button>
 
       <c-button>
         asdf
-        <c-icon.adjustments-horizontal/>
+        <c-heroicon.adjustments-horizontal/>
       </c-button>
 
-      <c-button href="#" icon="link" />
+      <c-button href="#" heroicon="link" />
     </div>
   </body>
 </html>

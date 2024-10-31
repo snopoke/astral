@@ -4,6 +4,15 @@ version = "0.1.0"
 description = "The DaisyUI Django Cotton Component Library"
 readme = "README.md"
 requires-python = ">=3.9,<4"
+license = "MIT"
+author = "Simon Kelly"
+keywords = ["django", "daisyui", "cotton", "component", "library"]
+url = "https://github.com/snopoke/cotton-daisyui"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
 dependencies = [
     "django-cotton>=1.2.0",
     "django>=4.2,<5.2",
@@ -14,9 +23,24 @@ heroicons = [
     "cotton-heroicons>=0.1.1",
 ]
 
+
+[project.urls]
+"Homepage" = "https://github.com/snopoke/cotton-daisyui"
+
 [tool.uv]
 dev-dependencies = [
     "invoke>=2.2.0",
     "pre-commit>=4.0.1",
     "ruff>=0.6.9",
+]
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/cotton_daisyui",
 ]

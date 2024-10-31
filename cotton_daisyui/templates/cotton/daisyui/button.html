@@ -47,10 +47,10 @@
 {% define button_classes|append_class:"btn-block" if_=block name="button_classes" %}
 
 {% define button_classes|append_class:class_size as button_classes %}
-<c-tooltip :tooltip=tooltip :position="tooltip_position" variant="{{ tooltip_variant|default:variant }}">
-  <c-button-or-link class="btn {{ button_classes }}">
+<c-daisyui.tooltip :tooltip=tooltip :position="tooltip_position" variant="{{ tooltip_variant|default:variant }}">
+  <c-daisyui.button-or-link class="btn {{ button_classes }}">
     {% if loading %}
-      <c-loading :variant="loading_variant"></c-loading>
+      <c-daisyui.loading :variant="loading_variant"></c-daisyui.loading>
     {% endif %}
     {% if icon_leading and not loading %}
       {% if icon_leading|striptags == icon_leading %}
@@ -69,5 +69,5 @@
         {{ icon_trailing }}
       {% endif %}
     {% endif %}
-  </c-button-or-link>
-</c-tooltip>
+  </c-daisyui.button-or-link>
+</c-daisyui.tooltip>

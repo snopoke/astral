@@ -8,38 +8,38 @@
   </head>
   <body>
     <div class="m-20 join gap-2">
-      <c-button heroicon="adjustments-horizontal" circle variant="info"/>
+      <c-daisyui.button icon="adjustments-horizontal" circle variant="info"/>
 
-      <c-button heroicon="adjustments-horizontal" variant="error" tooltip="hi" tooltip_position="bottom"/>
+      <c-daisyui.button icon="adjustments-horizontal" variant="error" tooltip="hi" tooltip_position="bottom"/>
 
-      <c-button variant="error" loading loading_variant="dots" tooltip="hi" tooltip_variant="success"/>
+      <c-daisyui.button variant="error" loading loading_variant="dots" tooltip="hi" tooltip_variant="success"/>
 
-      <c-button icon_leading="adjustments-horizontal" variant="success">test</c-button>
+      <c-daisyui.button icon_leading="adjustments-horizontal" variant="success">test</c-daisyui.button>
 
-      <c-button icon_trailing="adjustments-horizontal" variant="primary">test</c-button>
+      <c-daisyui.button icon_trailing="adjustments-horizontal" variant="primary">test</c-daisyui.button>
 
-      <c-button>
-        <c-slot name="heroicon">
+      <c-daisyui.button>
+        <c-slot name="icon">
           <c-heroicon.adjustments-horizontal/>
         </c-slot>
-      </c-button>
+      </c-daisyui.button>
 
-      <c-button icon="chart-bar" icon_trailing="adjustments-horizontal">
+      <c-daisyui.button icon="chart-bar" icon_trailing="adjustments-horizontal">
         test
-      </c-button>
+      </c-daisyui.button>
 
-      <c-button>
+      <c-daisyui.button>
         <c-heroicon.chart-bar/>
         asdf
         <c-heroicon.adjustments-horizontal/>
-      </c-button>
+      </c-daisyui.button>
 
-      <c-button>
+      <c-daisyui.button>
         asdf
         <c-heroicon.adjustments-horizontal/>
-      </c-button>
+      </c-daisyui.button>
 
-      <c-button href="#" heroicon="link" />
+      <c-daisyui.button href="#" icon="link" />
     </div>
   </body>
 </html>

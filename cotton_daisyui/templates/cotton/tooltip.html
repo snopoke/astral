@@ -1,3 +1,4 @@
+{% load cotton_daisyui %}
 <c-vars position="top" variant tooltip/>
 {% define "tooltip-primary tooltip-secondary tooltip-accent tooltip-info tooltip-success tooltip-warning tooltip-error"|build_class_map:"tooltip" as variants %}
 {% define variants|get_item:variant if_=variant as class_variant %}

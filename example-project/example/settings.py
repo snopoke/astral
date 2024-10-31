@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_cotton.apps.SimpleAppConfig",
     "cotton_heroicons",
-    "astral",
+    "cotton_daisyui",
 ]
 
 MIDDLEWARE = [
@@ -75,7 +75,6 @@ TEMPLATES = [
             ],
             "builtins": [
                 "django_cotton.templatetags.cotton",
-                "astral.templatetags.astral",
             ],
         },
     },

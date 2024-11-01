@@ -3,3 +3,32 @@
 A [Django Cotton](https://django-cotton.com/) Component Library for [daisyUI](https://daisyui.com/).
 
 A work in progress.
+
+
+## Installation
+
+```bash
+pip install cotton-daisyui[heroicons]
+```
+
+## Configuration
+
+### Simple path
+
+Update Django settings:
+
+```python
+INSTALLED_APPS = [
+    ...
+    'django_cotton',
+    'cotton_heroicons',  # optional but recommended
+    'cotton_daisyui',
+    ...
+]
+```
+
+TODO: 
+* Build CSS
+* Add CSS to base template
+
+### Advanced path

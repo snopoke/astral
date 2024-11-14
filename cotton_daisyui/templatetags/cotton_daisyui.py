@@ -1,7 +1,6 @@
 from django import template
 from django.template.base import token_kwargs
 from django.template.defaultfilters import stringfilter
-from django_cotton.templatetags import DynamicAttr
 
 register = template.Library()
 
@@ -53,15 +52,9 @@ def define_var(parser, token):
 register.tag("define", define_var)
 
 
-@register.simple_tag(takes_context=True)
-def define_eval(context, val):
-    val = str(val)
-    return DynamicAttr(val).resolve(context)
-
-
 @register.simple_tag
-def join_vars(*args, separator=" "):
-    return separator.join(filter(None, args))
+def merge_classes(*args, separator=" "):
+    return separator.join(set(filter(None, args)))
 
 
 @register.filter(is_safe=True)

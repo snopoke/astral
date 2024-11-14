@@ -6,7 +6,7 @@
 {% define "tooltip-top tooltip-bottom tooltip-left tooltip-right"|build_class_map:"tooltip" as positions %}
 {% define positions|get_item:position as class_position %}
 
-{% join_vars class_variant class_position as classes %}
+{% merge_classes class_variant class_position as classes %}
 {% if tooltip %}
   <div class="tooltip {{ classes }}" data-tip="{{ tooltip }}">
     {{ slot }}

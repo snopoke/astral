@@ -1,4 +1,5 @@
 from django import template
+from django.template.base import token_kwargs
 from django.template.defaultfilters import stringfilter
 from django_cotton.templatetags import DynamicAttr
 
@@ -7,22 +8,49 @@ register = template.Library()
 EMPTY = object()
 
 
-@register.simple_tag(takes_context=True)
-def define(context, val, name=None, append=None, if_=EMPTY):
-    if if_ is not EMPTY and if_ != "empty__" and not if_:
+class DefineVarNode(template.Node):
+    def __init__(self, val, if_, target_var):
+        self.val = val
+        self.target_var = target_var
+        self.if_ = if_
+
+    def render(self, context):
+        if self.if_ is not EMPTY and not self.if_.resolve(context):
+            return ""
+
+        context[self.target_var] = self.val.resolve(context)
         return ""
 
-    if append and name in context:
-        out = context.get(name)
-        if not isinstance(append, bool):
-            out += append
-        val = out + str(val)
 
-    if name:
-        context[name] = val
-        return ""
+def define_var(parser, token):
+    """
+    {% define "value" as var %}
+    {% define "value" if_=maybe_true as var %}
+    """
+    bits = token.split_contents()[1:]
+    if len(bits) >= 2 and bits[-2] == "as":
+        target_var = bits[-1]
+        bits = bits[:-2]
+    else:
+        raise template.TemplateSyntaxError(
+            "'define' must be assigned to a variable using the 'as' keyword"
+        )
 
-    return val
+    if len(bits) == 1:
+        val = bits[0]
+        if_ = EMPTY
+    else:
+        try:
+            val, if_ = bits
+        except ValueError:
+            raise template.TemplateSyntaxError(
+                "'define' tag requires a value and an optional condition"
+            )
+        if_ = token_kwargs([if_], parser)["if_"]
+    return DefineVarNode(parser.compile_filter(val), if_, target_var)
+
+
+register.tag("define", define_var)
 
 
 @register.simple_tag(takes_context=True)

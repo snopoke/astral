@@ -1,5 +1,7 @@
 {# See https://daisyui.com/components/button/ #}
 {% load cotton_daisyui %}
+
+
 <c-vars
   size="md"
   variant="default"
@@ -32,9 +34,9 @@
 {% endif %}
 
 {% define sizes|get_item:size as class_size %}
-{% define class_size|add:" btn-square" if_=square name="class_size" %}
+{% define class_size|add:" btn-square" if_=square as class_size %}
 {% if not square %}
-  {% define class_size|add:" btn-circle" if_=circle name="class_size" %}
+  {% define class_size|add:" btn-circle" if_=circle as class_size %}
 {% endif %}
 
 {% define "" as button_classes %}
@@ -42,9 +44,9 @@
   {% define variants|get_item:variant|append_class:button_classes as button_classes %}
 {% endif %}
 
-{% define button_classes|append_class:"btn-outline" if_=outline name="button_classes" %}
-{% define button_classes|append_class:"btn-wide" if_=wide name="button_classes" %}
-{% define button_classes|append_class:"btn-block" if_=block name="button_classes" %}
+{% define button_classes|append_class:"btn-outline" if_=outline as button_classes %}
+{% define button_classes|append_class:"btn-wide" if_=wide as button_classes %}
+{% define button_classes|append_class:"btn-block" if_=block as button_classes %}
 
 {% define button_classes|append_class:class_size as button_classes %}
 <c-daisyui.tooltip :tooltip=tooltip :position="tooltip_position" variant="{{ tooltip_variant|default:variant }}">

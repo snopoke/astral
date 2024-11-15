@@ -57,6 +57,21 @@ def merge_classes(*args, separator=" "):
     return separator.join(set(filter(None, args)))
 
 
+@register.simple_tag(takes_context=True)
+def require_vars(context, *args):
+    try:
+        key = context.get("cotton_data", {}).get(
+            "stack",
+        )[-1]["key"]
+    except (IndexError, KeyError):
+        key = ""
+    for arg in args:
+        if context.get(arg) is None:
+            where = f"by the '{key}' component" if key else "in the context"
+            raise template.TemplateSyntaxError(f"'{arg}' is required {where}")
+    return ""
+
+
 @register.filter(is_safe=True)
 @stringfilter
 def append_class(value, arg):

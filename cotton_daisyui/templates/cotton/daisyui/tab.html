@@ -1,0 +1,16 @@
+{% load cotton_daisyui %}
+<c-vars
+    group
+    label
+    checked
+    state=""
+    class="py-5"
+></c-vars>
+
+{% require_vars "group" %}
+
+{% define "tab-active tab-disabled"|build_class_map:"tab" as state_map %}
+{% define state_map|get_item:state as class_state %}
+
+<input type="radio" name="{{ group }}" role="tab" class="tab" aria-label="{{ label }}" {{ checked }} />
+<div role="tabpanel" class="tab-content {{ class }}">{{ slot }}</div>

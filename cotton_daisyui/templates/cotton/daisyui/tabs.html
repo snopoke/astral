@@ -1,0 +1,14 @@
+{% load cotton_daisyui %}
+<c-vars
+  variant=""
+  size="md"
+></c-vars>
+
+{% define "tabs-boxed tabs-bordered tabs-lifted"|build_class_map:"tabs" as variants %}
+{% define "tabs-xs tabs-sm tabs-md tabs-lg"|build_class_map:"tabs" as sizes %}
+
+{% define variants|get_item:variant as class_variant %}
+{% define sizes|get_item:size as class_size %}
+<div role="tablist" class="tabs {% merge_classes class_size class_variant %}">
+  {{ slot }}
+</div>

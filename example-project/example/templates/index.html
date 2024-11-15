@@ -1,4 +1,5 @@
 {% load static %}
+{% load cotton_daisyui %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,7 +40,17 @@
         <c-heroicon.adjustments-horizontal/>
       </c-daisyui.button>
 
-      <c-daisyui.button href="#" icon="link" />
+      <c-daisyui.button href="#" icon="link"/>
+    </div>
+    <div class="m-20">
+      <c-daisyui.tabs variant="lifted" name="demo">
+        <c-daisyui.tab label="Tab 1" checked="checked" group="abc">
+          Tab 1 content
+        </c-daisyui.tab>
+        <c-daisyui.tab label="Tab 2" group="abc">
+          Tab 2 content
+        </c-daisyui.tab>
+      </c-daisyui.tabs>
     </div>
   </body>
 </html>
